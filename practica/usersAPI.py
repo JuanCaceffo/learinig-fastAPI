@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import itertools as it
 
 app = FastAPI()
 
@@ -106,4 +105,12 @@ async def user(id:int):
                 return users_list.pop(i)
     except Exception as e:
         return str(e)
+    
+@app.delete("/user/{name}/{lastName}")
+async def user(name:str,lastName:str):
+    name = name.lower()
+    lastName = lastName.lower()
+    global users_list
+    users_list = list(filter(lambda user: (user.name != name and user.lastname != lastName), users_list)) 
+
 ##-------------------------------------------------- DELETE -------------------------------------------------- 
