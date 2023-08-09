@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from routers.user import errorUserNotFund, ERROR_USERDONOTEXIST, users_list
 
-router = APIRouter(prefix="/users")
+router = APIRouter(prefix="/users",tags=["users"])
 
 
 ##-------------------------------------------------- GET -------------------------------------------------- 

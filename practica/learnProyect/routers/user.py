@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 
-router = APIRouter(prefix="/user")
+router = APIRouter(prefix="/user",tags=["user"])
 
 ##BaseModle nos da la capacidad de crear una entidad
 class Users(BaseModel):
